@@ -27,10 +27,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-        env:
-          GITHUB_WORKSPACE: /home/runner/repo
-        with:
-          path: .
+
+      - name: Symlink
+        run: ln -s /home/runner/work/actions-tests/actions-tests /home/runner/work/repo
+
+      - name: List files
+        run: ls -lH /home/runner/work/repo
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
