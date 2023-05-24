@@ -1,7 +1,0 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
-runs:
-  using: 'node16'
-  main: 'dist/main/index.js'
-  post: 'dist/post/index.js'
