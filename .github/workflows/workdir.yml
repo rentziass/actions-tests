@@ -13,11 +13,11 @@ jobs:
       - run: echo Harry
       - run: echo Potter
       - run: |
-          str="OtherVeryComplexSecretThat\nThatIsAlsoMultiline\r\nAndOfBothTypes"
+          str="Unescaped\nMultiple\r\nLines"
           echo "::add-mask::$str"
       - run: |
-          str="OtherVeryComplexSecretThat\nThatIsAlsoMultiline\r\nAndOfBothTypes"
+          str="Unescaped\nMultiple\r\nLines"
           echo $str
-          echo OtherVeryComplexSecretThat
+          echo Unescaped
 
 
