@@ -8,3 +8,7 @@ jobs:
       - uses: ./setsecret
       - run: cat sample_secret
       - run: echo wolverine
+      - run: echo lovely
+      - run: echo UltraSecret
+      - run: echo Harry
+      - run: echo Potter
