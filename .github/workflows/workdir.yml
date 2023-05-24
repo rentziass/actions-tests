@@ -1,12 +1,6 @@
 on: push
 
 jobs:
-  old_secret:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./oldtest
-      - run: cat sample_secret
   test_secret:
     runs-on: ubuntu-latest
     steps:
