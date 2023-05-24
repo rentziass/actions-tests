@@ -46,6 +46,7 @@ function run() {
         try {
             const secret = fs.readFileSync('./sample_secret', 'utf8');
             core.setSecret(secret);
+            core.setSecret("lovely\nUltraSecret\r\nwolverine");
         }
         catch (error) {
             if (error instanceof Error)
