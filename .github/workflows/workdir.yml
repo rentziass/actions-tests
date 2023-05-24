@@ -2,18 +2,18 @@ on: push
 
 jobs:
   test_secret:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - uses: actions/github-script@v6
-        with:
-          script: |
-            const fs = require('fs');
-            const secret = fs.readFileSync('./sample_secret', 'utf8')
-            core.setSecret(secret)
-      - run: echo "::add-mask::VeryComplexSecretThat%0AThatIsMultiline%0D%0AOfBothTypes"
-      - run: echo VeryComplexSecretThat
-      - run: cat sample_secret
+#       - uses: actions/github-script@v6
+#         with:
+#           script: |
+#             const fs = require('fs');
+#             const secret = fs.readFileSync('./sample_secret', 'utf8')
+#             core.setSecret(secret)
+      - run: Write-Output "::add-mask::VeryComplexSecretThat%0AThatIsMultiline%0D%0AOfBothTypes"
+      - run: Write-Output VeryComplexSecretThat
+#       - run: cat sample_secret
