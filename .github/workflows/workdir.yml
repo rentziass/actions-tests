@@ -14,4 +14,6 @@ jobs:
             const fs = require('fs');
             const secret = fs.readFileSync('./sample_secret', 'utf8')
             core.setSecret(secret)
+      - run: echo "::add-mask::VeryComplexSecretThat%0AThatIsMultiline%0D%0AOfBothTypes"
+      - run: echo VeryComplexSecretThat
       - run: cat sample_secret
