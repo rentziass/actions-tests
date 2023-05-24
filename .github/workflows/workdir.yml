@@ -12,3 +12,12 @@ jobs:
       - run: echo OfBothTypes
       - run: echo Harry
       - run: echo Potter
+      - run: |
+        str = "OtherVeryComplexSecretThat\nThatIsAlsoMultiline\r\nAndOfBothTypes"
+        echo "::add-mask::$str"
+      - run: |
+        str = "OtherVeryComplexSecretThat\nThatIsAlsoMultiline\r\nAndOfBothTypes"
+        echo $str
+        echo OtherVeryComplexSecretThat
+
+
