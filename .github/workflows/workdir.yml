@@ -2,22 +2,15 @@ on: push
 
 jobs:
   test_secret:
+    strategy:
+      matrix:
+        number: ["one", "two"]
+        color: ["red", "blue"]
+        include:
+          - day: monday
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: ./setsecret
-      - run: cat sample_secret
-      - run: echo VeryComplexSecretThat
-      - run: echo ThatIsMultiline
-      - run: echo OfBothTypes
-      - run: echo Harry
-      - run: echo Potter
       - run: |
-          str="Unescaped\nMultiple\r\nLines"
-          echo "::add-mask::$str"
-      - run: |
-          str="Unescaped\nMultiple\r\nLines"
-          echo $str
-          echo Unescaped
+          echo 'Hello world'
 
 
