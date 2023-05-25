@@ -8,6 +8,7 @@ jobs:
         color: ["red", "blue"]
         include:
           - day: monday
+          - other: other
     runs-on: ubuntu-latest
     steps:
       - run: |
