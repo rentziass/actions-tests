@@ -1,7 +1,7 @@
 on:
   push:
     paths:
-      - "**/Cluster"
+      - "**/Cluster/file"
       
 jobs:
   test:
