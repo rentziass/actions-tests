@@ -1,14 +1,10 @@
-on: push
-
+on:
+  push:
+    paths:
+      - "**/Cluster"
+      
 jobs:
-  test_secret:
-    strategy:
-      matrix:
-        number: ["one", "two"]
-        color: ["red", "blue"]
-        include:
-          - day: monday
-          - other: other
+  test:
     runs-on: ubuntu-latest
     steps:
       - run: |
