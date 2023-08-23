@@ -1,7 +1,5 @@
 on:
   push:
-    paths:
-      - "**/Cluster/file"
       
 jobs:
   test:
@@ -9,5 +7,6 @@ jobs:
     steps:
       - run: |
           echo 'Hello world'
+          exit 1
 
 
