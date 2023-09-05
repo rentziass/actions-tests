@@ -6,6 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo ::error:: [docs](https://thehub.github.com/epd/engineering/products-and-services/actions/kusto/?reloaded=true)
+          echo ::error:: "[docs](https://thehub.github.com/epd/engineering/products-and-services/actions/kusto/?reloaded=true)"
 
 
