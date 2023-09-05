@@ -6,7 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo 'Hello world'
-          exit 1
+          echo ::error:: https://github.com/actions/runner
 
 
