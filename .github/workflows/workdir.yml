@@ -1,11 +1,22 @@
+name: test race
 on:
-  push:
-      
+  workflow_dispatch:
+
 jobs:
-  test:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: [ self-hosted-rentziass ] 
     steps:
-      - run: |
-          echo ::error:: "[docs](https://thehub.github.com/epd/engineering/products-and-services/actions/kusto/?reloaded=true)"
-
-
+      - name: Run a one-line script
+        run: echo Hello, world!
+  test:
+      needs: [build]
+      runs-on: [ self-hosted-rentziass ]
+      steps:
+        - name: Run a one-line script
+          run: echo Hello, world!
+  
+        # Runs a set of commands using the runners shell
+        - name: check attempt
+          if: github.run_attempt == 1
+          run: |
+            exit 1
