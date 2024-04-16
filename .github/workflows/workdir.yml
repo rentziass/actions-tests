@@ -3,8 +3,30 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: [ ubuntu-latest ] 
+  cd:
+    concurrency:
+      cancel-in-progress: true
+      group: cicd-cd-concurrency-group
+    environment: "${{ matrix.config.DEPLOYMENT_ENVIRONMENT }}"
+    name: "cd-${{ matrix.config.DEPLOYMENT_ENVIRONMENT }}"
+    runs-on: [ubuntu-latest]
+    strategy:
+      fail-fast: true
+      matrix:
+        config:
+          - APP_VERSION_ENV: "nonprod"
+            DEPLOYMENT_ENVIRONMENT: "np"
+            DEPLOYMENT_RUNNER: "cd-ubuntu-s-np"
+            GOOGLE_GKE_CLUSTER: "***"
+            GOOGLE_GKE_PROJECT: "***"
+            GOOGLE_SERVICE_ACCOUNT_HARNESS_DELEGATE: "***"
+          - APP_VERSION_ENV: "prod"
+            DEPLOYMENT_ENVIRONMENT: "prod"
+            DEPLOYMENT_RUNNER: "cd-ubuntu-s-prod"
+            GOOGLE_GKE_CLUSTER: "***"
+            GOOGLE_GKE_PROJECT: "***"
+            GOOGLE_SERVICE_ACCOUNT_HARNESS_DELEGATE: "***"
+      max-parallel: 1
     steps:
       - env:
           RUNNER_TOOL_CACHE: /opt/hostedtoolcache2
