@@ -4,8 +4,7 @@ on:
 
 jobs:
   cd:
-    runs-on:
-      group: "nonexisting"
+    runs-on: ["self-hosted"]
     steps:
       - run: |
-          echo "hello"
+          sleep 120
